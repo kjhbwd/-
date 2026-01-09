@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Outfit:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Japanese Traditional Palette */
+  /* SHU (Vermilion) - Primary Accent */
+  --primary: 354 78% 54%;
+  --primary-foreground: 0 0% 100%;
+
+  /* KITSUNE (Fox/Wood) - Secondary/Warmth */
+  --secondary: 32 40% 90%;
+  --secondary-foreground: 24 10% 20%;
+
+  /* SUMI (Ink) - Text */
+  --foreground: 220 15% 15%;
+  --muted-foreground: 220 10% 45%;
+
+  /* WASHL (Japanese Paper) - Background */
+  --background: 40 20% 99%;
+  --card: 0 0% 100%;
+  --card-foreground: 220 15% 15%;
+
+  --muted: 40 10% 94%;
+  --border: 40 10% 90%;
+  --input: 40 10% 90%;
+  --ring: 354 78% 54%;
+
+  --radius: 0.75rem;
+  
+  --font-sans: 'Outfit', sans-serif;
+  --font-jp: 'Noto Sans JP', sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground antialiased selection:bg-primary/20 selection:text-primary;
+    font-family: var(--font-sans);
+    background-image: radial-gradient(#d4d4d4 1px, transparent 1px);
+    background-size: 32px 32px;
+    background-color: hsl(var(--background));
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-jp);
+    @apply tracking-tight font-medium;
+  }
+}
+
+.glass-panel {
+  @apply bg-white/80 backdrop-blur-md border border-white/20 shadow-xl shadow-black/5;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-border rounded-full hover:bg-muted-foreground/30 transition-colors;
+}
